@@ -1,22 +1,3 @@
-// GLOBAL VARIBALES : 
-var Global_Style = [];
-const main_color = "#8c5cdfff";
-const prim_color = "#212121ff"
-// FUNCTIONS : 
-function injectStyle(cssString) {
-  const styleId = "9566ec883cfc66c1d8e693110ee4290f1b6476864"; 
-  let oldStyle = document.getElementById(styleId);
-  if (oldStyle) {
-    oldStyle.remove();
-  }
-  const style = document.createElement("style");
-  style.id = styleId;
-  style.textContent = cssString;
-  document.head.appendChild(style);
-}
-function command_spliter(shell){
-  return shell.replace("/;", " __$emi_col__ ").replace("\n", " ").split(";").map((str)=>str.trim().split(/\s+/).filter(s => s.length));
-}
 function RanString(length) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -327,25 +308,3 @@ export default function new_loader(parent , command){
     `)
   }
 }
-// MAIN CODE :
-var els = document.body.getElementsByTagName("*");
-
-for (let i = 0; i < els.length; i++) {
-  const shell = els[i].getAttribute('data-shell')
-  const commands = shell === null ? [] : command_spliter(shell);
-  
-  if(shell){
-    for (const elm of commands) {
-      switch (elm[0]) {
-        case 'loader':
-          new_loader(els[i] , elm)
-          break;
-        
-        default:
-          break;
-      }
-    }
-  }
-}
-
-injectStyle(Global_Style.join(' '));

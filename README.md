@@ -1,4 +1,4 @@
-# Data-Shell ![Javascript](https://img.shields.io/badge/%20-EFD81D?logo=javascript&logoColor=black) ![HTML](https://img.shields.io/badge/%20-E5532F?logo=html5&logoColor=black) ![Css](https://img.shields.io/badge/%20-3178C6?logo=css&logoColor=black) ![Verson](https://img.shields.io/badge/1.0.1-E5532F)
+# Data-Shell ![Javascript](https://img.shields.io/badge/%20-EFD81D?logo=javascript&logoColor=black) ![HTML](https://img.shields.io/badge/%20-E5532F?logo=html5&logoColor=white) ![Css](https://img.shields.io/badge/%20-3178C6?logo=css&logoColor=white) ![Verson](https://img.shields.io/badge/1.0.1-E5532F)
 
 ## Introduction
 
