@@ -1,4 +1,6 @@
-function run_data_shell_replacer (){
+import { injectStyle } from "./utils";
+
+export function run_data_shell_replacer (){
     let GLOBAL_ELEMENTS = []
     const els = document.body.getElementsByTagName("*");
     for (let i = 0; i < els.length; i++) {
