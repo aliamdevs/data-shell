@@ -60,9 +60,9 @@ export default function ElementSelector({type = 'div' ,src, children , className
         return <video data-shell-id={dsi} src={src} onClick={onClick} id={id} className={className} />
       case 'audio':
         return <audio data-shell-id={dsi} src={src} onClick={onClick} id={id} className={className} />
-      case 'div':
-        return <div data-shell-id={dsi} style={style} onClick={onClick} id={id} className={className}>{children}</div>
+      case 'none':
+          return <React.Fragment>{children}</React.Fragment>
       default:
-        return <React.Fragment>{children}</React.Fragment>
+        return <div data-shell-id={dsi} style={style} onClick={onClick} id={id} className={className}>{children}</div>
   }
 }

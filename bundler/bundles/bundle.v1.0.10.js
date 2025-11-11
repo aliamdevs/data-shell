@@ -1,5 +1,44 @@
-import { RanString , prim_color ,isNumeric } from "./utils";
-export function new_loader(command){
+/* Auto-generated bundle v1.0.10 - 2025-11-11T15:39:36.822Z */
+
+// GLOBAL VARIBALES : 
+const main_color = "#8c5cdfff";
+const prim_color = "#212121ff"
+// FUNCTIONS : 
+function injectStyle(lst) {
+  const styleId = "9566ec883cfc66c1d8e693110ee4290f1b6476864"; 
+  let oldStyle = document.getElementById(styleId);
+  if (oldStyle) {
+    oldStyle.remove();
+  }
+  const style = document.createElement("style");
+  style.id = styleId;
+  let cssstr = '';
+  for(const stl in lst){
+    console.log(stl);
+    
+    cssstr += lst[stl].innerStyle;
+  }
+  style.textContent = cssstr;
+  document.head.appendChild(style);
+}
+function command_spliter(shell){
+  return shell.replace("/;", " __$emi_col__ ").replace("\n", " ").split(";").map((str)=>str.trim().split(/\s+/).filter(s => s.length));
+}
+function RanString(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+function isNumeric(str) {
+  if (typeof str != "string") return false 
+  return !isNaN(str) && !isNaN(parseFloat(str))
+}
+
+function new_loader(command){
   let kind = "x1";
   const UINIQE = RanString(14);
   let _w='40px' , _h='71.6px' , _b='3px' , _c=prim_color , _s='1000ms' , __ID=null
@@ -306,3 +345,42 @@ export function new_loader(command){
 
   return res
 }
+
+function run_data_shell_replacer (){
+    let GLOBAL_ELEMENTS = []
+    const els = document.body.getElementsByTagName("*");
+    for (let i = 0; i < els.length; i++) {
+        const shell = els[i].getAttribute("data-shell");
+        if (!shell) continue;
+        const commands = command_spliter(shell);
+        for (const elm of commands) {
+            if (elm[0] === "loader") {
+                const ulm = new_loader(elm)
+                GLOBAL_ELEMENTS.push(ulm)
+                els[i].innerHTML += `<${ulm.node} ${ulm.id === null ? '' : 'id="'+ulm.id+'"'} class=${ulm.class.join(' ')} data-shell-id=${ulm.__DID} >${ulm.children.join('')}</${ulm.node}>`
+            };
+        }
+    }
+    injectStyle(GLOBAL_ELEMENTS);
+}
+
+
+function data_shell_array(shell) {
+    let GLOBAL_ELEMENTS = []
+    if(shell){
+      const commands = command_spliter(shell);
+      for (const elm of commands) {
+          if (elm[0] === "loader") {
+              GLOBAL_ELEMENTS.push(new_loader(elm))
+          };
+      }
+    }
+    return GLOBAL_ELEMENTS
+}
+
+
+function useDataShell(){
+    run_data_shell_replacer();
+}
+
+run_data_shell_replacer();

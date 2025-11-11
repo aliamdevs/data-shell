@@ -7,6 +7,7 @@ import { minify } from "terser";
 const files = ["utils.js", "loader.js","engine.js", "main.js"];
 const jsDir = path.resolve("./bundler/js");
 const inputDir = path.resolve("./bundler/bundles");
+const inputDirCDNs = path.resolve("./bundler/bundles/CDNs");
 const pkgPath = path.resolve("./package.json");
 
 // --- READ PACKAGE VERSION ---
@@ -16,7 +17,8 @@ const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
 const versionTag = `v${pkg.version}`;
 const outputFile = path.join(inputDir, `bundle.${versionTag}.js`);
 const outputMin = path.join(inputDir, `bundle.${versionTag}.min.js`);
-
+const outputFileMain = path.join(inputDirCDNs, `data-shell.bundle.js`);
+const outputMinMain = path.join(inputDirCDNs, `data-shell.bundle.min.js`);
 // --- MERGE FILES ---
 let bundle = `/* Auto-generated bundle ${versionTag} - ${new Date().toISOString()} */\n\n`;
 
@@ -32,15 +34,17 @@ for (const file of files) {
   content = content.replace(/\bexport\s+/g, ""); 
   content = content.replace(/^\s*import\s+.*?['"].*?['"]\s*;?\s*$/gm, "")
 
-  bundle += `// ---- ${file} ----\n${content}\n\n`;
+  bundle += `${content}\n`;
 }
 
 // --- WRITE UNMINIFIED BUNDLE ---
 fs.writeFileSync(outputFile, bundle, "utf8");
+fs.writeFileSync(outputFileMain, bundle, "utf8");
 
 // --- MINIFY AND WRITE ---
 const result = await minify(bundle, { compress: true, mangle: true });
 fs.writeFileSync(outputMin, result.code, "utf8");
+fs.writeFileSync(outputMinMain, result.code, "utf8");
 
 // --- LOG OUTPUT ---
 console.log("✅ Bundle created successfully!");
