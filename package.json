@@ -1,0 +1,28 @@
+{
+  "name": "data-shell",
+  "version": "1.0.1",
+  "description": "Hi I'm Ali & This Project is An UI Library For Pure HTML or Websites' Frameworks Called Data Shell.",
+  "main": "dist/data-shell.umd.js",
+  "module": "dist/data-shell.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build-bundle": "node ./bundler/build.js",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliamdevs/data-shell.git"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "terser": "^5.31.0"
+  },
+  "keywords": ["data-shell" , "Data Shell"],
+  "author": "Aliamdevs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliamdevs/data-shell/issues"
+  },
+  "homepage": "https://github.com/aliamdevs/data-shell#readme"
+}

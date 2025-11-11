@@ -1,0 +1,14 @@
+{
+  "name": "data-shell-bundler",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build bundle": "node build.js"
+  },
+  "devDependencies": {
+    "terser": "^5.31.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
