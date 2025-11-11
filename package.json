@@ -1,5 +1,5 @@
 {
-  "name": "data-shell",
+  "name": "@aliamdevs/data-shell",
   "version": "1.0.1",
   "description": "Hi I'm Ali & This Project is An UI Library For Pure HTML or Websites' Frameworks Called Data Shell.",
   "main": "dist/data-shell.umd.js",
