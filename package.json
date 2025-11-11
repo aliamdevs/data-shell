@@ -18,11 +18,17 @@
     "react-dom": "^18.0.0",
     "terser": "^5.31.0"
   },
-  "keywords": ["data-shell" , "Data Shell"],
+  "keywords": [
+    "data-shell",
+    "Data Shell"
+  ],
   "author": "Aliamdevs",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aliamdevs/data-shell/issues"
   },
-  "homepage": "https://github.com/aliamdevs/data-shell#readme"
+  "homepage": "https://github.com/aliamdevs/data-shell#readme",
+  "dependencies": {
+    "vite": "^6.4.1"
+  }
 }
