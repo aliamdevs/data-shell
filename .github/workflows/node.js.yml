@@ -34,3 +34,12 @@ jobs:
       if: github.event_name == 'push'
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        registry-url: 'https://npm.pkg.github.com'
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GT_TOKEN }}
