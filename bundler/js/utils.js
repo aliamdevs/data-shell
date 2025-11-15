@@ -10,13 +10,19 @@ export function injectStyle(lst) {
   }
   const style = document.createElement("style");
   style.id = styleId;
-  let cssstr = '';
-  for(const stl in lst){
-    console.log(stl);
-    
-    cssstr += lst[stl].innerStyle;
+
+  function style_extract(ulm){
+    let cssstr = '';
+    for(const stl of ulm){
+      cssstr += stl.innerStyle;
+      if(stl.children.length !== 0){
+        cssstr += style_extract(stl.children)
+      }
+    }
+    return(cssstr);
   }
-  style.textContent = cssstr;
+
+  style.textContent = style_extract(lst);
   document.head.appendChild(style);
 }
 export function command_spliter(shell){

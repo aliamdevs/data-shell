@@ -35,6 +35,35 @@ export function new_loader(command){
           tmp_px = isNumeric(command[i+1][command[i+1].length-1]);
           _s = tmp_px ? command[i+1] + 'ms' : command[i+1]
           break;
+        case '-1':
+          kind = 'x1'
+          i--;
+          break;
+        case '-2':
+          kind = 'x2'
+          _s='2000ms'
+          i--;
+          break;
+        case '-3':
+          kind = 'x3'
+          _s='3000ms'
+          i--;
+          break;
+        case '-4':
+          kind = 'x4'
+          _s='2000ms'
+          i--;
+          break;
+        case '-5':
+          kind = 'x5'
+          _s='2000ms'
+          i--;
+          break;
+        case '-6':
+          kind = 'x6'
+          _s='2000ms'
+          i--;
+          break;
         default:
           i--
           break;
@@ -54,46 +83,6 @@ export function new_loader(command){
         case 'small':
           _w='30px';_h="53.7px";_b="2px"
           break;
-        case 'spinner':
-        case 'spin':
-        case 't1':
-        case 'type-1':
-          kind = 'x1'
-          break;
-        case 'growing':
-        case 'grow':
-        case 't2':
-        case 'type-2':
-          kind = 'x2'
-          _s='2000ms'
-          break;
-        case 'dottedspinner':
-        case 'dotspin':
-        case 't3':
-        case 'type-3':
-          kind = 'x3'
-          _s='3000ms'
-          break;
-        case 'loading':
-        case 'load':
-        case 't4':
-        case 'type-4':
-          kind = 'x4'
-          _s='2000ms'
-          break;
-        case 'moon':
-        case 't5':
-        case 'type-5':
-          kind = 'x5'
-          _s='2000ms'
-          break;
-        case 'scroll':
-        case 't6':
-        case 'type-6':
-          kind = 'x6'
-          _s='2000ms'
-
-          break;
         default:
           break;
       }
@@ -112,6 +101,7 @@ export function new_loader(command){
           border-bottom-color: transparent;
           display: inline-block;
           box-sizing: border-box;
+          cursor: progress;
           animation: rotation-loader-snpinner-x0000 `+_s+` linear infinite;
       }
       @keyframes rotation-loader-snpinner-x0000 {
@@ -132,12 +122,14 @@ export function new_loader(command){
           width:`+_w+`;
           height:`+_w+`;
           display: inline-block;
+          cursor: progress;
           position: relative;
       }
       .loader-spinner-x0001-`+UINIQE+`::after,
       .loader-spinner-x0001-`+UINIQE+`::before{
         content: '';
         box-sizing: border-box;
+        cursor: progress;
         width: `+_w+`;
         height: `+_w+`;
         border-radius: 50%;
@@ -175,6 +167,7 @@ export function new_loader(command){
         display: inline-block;
         position: relative;
         box-sizing: border-box;
+        cursor: progress;
         animation: rotation-loader-spinner-x0003 `+_s+` linear infinite;
       }
       @keyframes rotation-loader-spinner-x0003 {
@@ -195,6 +188,7 @@ export function new_loader(command){
         width: `+_w+`;
         height: `+_w+`;
         display: inline-block;
+        cursor: progress;
         position: relative;
       }
       .loader-spinner-x0004-`+UINIQE+`::after,
@@ -206,6 +200,7 @@ export function new_loader(command){
         border-radius: 50%;
         background: `+_c+`;
         position: absolute;
+        cursor: progress;
         left: 0;
         top: 0;
         animation: animloader-loader-spinner-x0004 `+_s+` linear infinite;
@@ -235,6 +230,7 @@ export function new_loader(command){
         border-radius: 50%;
         display: inline-block;
         box-sizing: border-box;
+        cursor: progress;
         animation: animloader-loader-spinner-x0005 `+_s+` linear infinite;
       }
 
