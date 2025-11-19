@@ -41,7 +41,6 @@ export function new_skeleton(command){
           break;
         case '-1':
           tempelate = 'x1';
-          _s = 2.8;
           _w = "380px";
           i--;
           break;
@@ -70,12 +69,33 @@ export function new_skeleton(command){
     }else{
       switch (command[i]) {
         case 'large':
-          _s=4;
+          if(tempelate === 'x1' || tempelate === 'x2'){
+            _w = '450px';
+          }else if(tempelate === 'x3'){
+            _w = '300px';
+          }else if(tempelate === 'x4'){
+            _w = '270px';
+          }
+          _s = 4;
           break;
         case 'normal':
-          _s=3;
+          if(tempelate === 'x1' || tempelate === 'x2'){
+            _w = '380px';
+          }else if(tempelate === 'x3'){
+            _w = '230px';
+          }else if(tempelate === 'x4'){
+            _w = '200px';
+          }
+          _s = 3;
           break;
         case 'small':
+          if(tempelate === 'x1' || tempelate === 'x2'){
+            _w = '290px';
+          }else if(tempelate === 'x3'){
+            _w = '150px';
+          }else if(tempelate === 'x4'){
+            _w = '140px';
+          }
           _s=2;
           break;
         case "sharp":

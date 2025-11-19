@@ -34,6 +34,8 @@ export default function ElementSelector({type = 'div' ,src, children , className
         return <ol data-shell-id={dsi} onClick={onClick} id={id} className={className}>{children}</ol>
       case 'p':
         return <p style={style} data-shell-id={dsi} onClick={onClick} id={id} className={className}>{children}</p>
+      case 'i':
+        return <p style={style} data-shell-id={dsi} onClick={onClick} id={id} className={className}>{children}</p>
       case 'ul':
         return <ul data-shell-id={dsi} onClick={onClick} id={id} className={className}>{children}</ul>
       case 'a':
