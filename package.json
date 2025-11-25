@@ -1,6 +1,6 @@
 {
   "name": "@aliamdevs/data-shell",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Hi I'm Ali & This Project is An UI Library For Pure HTML or Websites' Frameworks Called Data Shell.",
   "main": "dist/data-shell.umd.js",
   "module": "dist/data-shell.es.js",

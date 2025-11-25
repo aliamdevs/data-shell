@@ -1,759 +1,396 @@
-import B, { useState as pr, useEffect as vr } from "react";
-var q = { exports: {} }, $ = {};
+import R, { useState as ce, useEffect as de } from "react";
+var B = { exports: {} }, E = {};
 /**
  * @license React
- * react-jsx-runtime.production.min.js
+ * react-jsx-runtime.production.js
  *
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var we;
-function hr() {
-  if (we) return $;
-  we = 1;
-  var l = B, d = Symbol.for("react.element"), a = Symbol.for("react.fragment"), t = Object.prototype.hasOwnProperty, o = l.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, s = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function i(f, _, p) {
-    var y, g = {}, O = null, W = null;
-    p !== void 0 && (O = "" + p), _.key !== void 0 && (O = "" + _.key), _.ref !== void 0 && (W = _.ref);
-    for (y in _) t.call(_, y) && !s.hasOwnProperty(y) && (g[y] = _[y]);
-    if (f && f.defaultProps) for (y in _ = f.defaultProps, _) g[y] === void 0 && (g[y] = _[y]);
-    return { $$typeof: d, type: f, key: O, ref: W, props: g, _owner: o.current };
+var W;
+function ue() {
+  if (W) return E;
+  W = 1;
+  var i = Symbol.for("react.transitional.element"), o = Symbol.for("react.fragment");
+  function e(r, n, s) {
+    var l = null;
+    if (s !== void 0 && (l = "" + s), n.key !== void 0 && (l = "" + n.key), "key" in n) {
+      s = {};
+      for (var a in n)
+        a !== "key" && (s[a] = n[a]);
+    } else s = n;
+    return n = s.ref, {
+      $$typeof: i,
+      type: r,
+      key: l,
+      ref: n !== void 0 ? n : null,
+      props: s
+    };
   }
-  return $.Fragment = a, $.jsx = i, $.jsxs = i, $;
+  return E.Fragment = o, E.jsx = e, E.jsxs = e, E;
 }
-var L = {};
+var j = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
  *
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Te;
-function br() {
-  return Te || (Te = 1, process.env.NODE_ENV !== "production" && (function() {
-    var l = B, d = Symbol.for("react.element"), a = Symbol.for("react.portal"), t = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), s = Symbol.for("react.profiler"), i = Symbol.for("react.provider"), f = Symbol.for("react.context"), _ = Symbol.for("react.forward_ref"), p = Symbol.for("react.suspense"), y = Symbol.for("react.suspense_list"), g = Symbol.for("react.memo"), O = Symbol.for("react.lazy"), W = Symbol.for("react.offscreen"), ee = Symbol.iterator, ke = "@@iterator";
-    function De(e) {
-      if (e === null || typeof e != "object")
-        return null;
-      var r = ee && e[ee] || e[ke];
-      return typeof r == "function" ? r : null;
-    }
-    var D = l.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function m(e) {
-      {
-        for (var r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), u = 1; u < r; u++)
-          n[u - 1] = arguments[u];
-        Fe("error", e, n);
-      }
-    }
-    function Fe(e, r, n) {
-      {
-        var u = D.ReactDebugCurrentFrame, b = u.getStackAddendum();
-        b !== "" && (r += "%s", n = n.concat([b]));
-        var x = n.map(function(v) {
-          return String(v);
-        });
-        x.unshift("Warning: " + r), Function.prototype.apply.call(console[e], console, x);
-      }
-    }
-    var Ie = !1, Ae = !1, Ce = !1, $e = !1, Le = !1, re;
-    re = Symbol.for("react.module.reference");
-    function We(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === t || e === s || Le || e === o || e === p || e === y || $e || e === W || Ie || Ae || Ce || typeof e == "object" && e !== null && (e.$$typeof === O || e.$$typeof === g || e.$$typeof === i || e.$$typeof === f || e.$$typeof === _ || // This needs to include all possible module reference object
-      // types supported by any Flight configuration anywhere since
-      // we don't know which Flight build this will end up being used
-      // with.
-      e.$$typeof === re || e.getModuleId !== void 0));
-    }
-    function Ye(e, r, n) {
-      var u = e.displayName;
-      if (u)
-        return u;
-      var b = r.displayName || r.name || "";
-      return b !== "" ? n + "(" + b + ")" : n;
-    }
-    function te(e) {
-      return e.displayName || "Context";
-    }
-    function T(e) {
-      if (e == null)
-        return null;
-      if (typeof e.tag == "number" && m("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof e == "function")
-        return e.displayName || e.name || null;
-      if (typeof e == "string")
-        return e;
-      switch (e) {
-        case t:
+var G;
+function fe() {
+  return G || (G = 1, process.env.NODE_ENV !== "production" && (function() {
+    function i(t) {
+      if (t == null) return null;
+      if (typeof t == "function")
+        return t.$$typeof === ie ? null : t.displayName || t.name || null;
+      if (typeof t == "string") return t;
+      switch (t) {
+        case k:
           return "Fragment";
-        case a:
-          return "Portal";
-        case s:
+        case v:
           return "Profiler";
-        case o:
+        case $:
           return "StrictMode";
-        case p:
+        case te:
           return "Suspense";
-        case y:
+        case ne:
           return "SuspenseList";
+        case ae:
+          return "Activity";
       }
-      if (typeof e == "object")
-        switch (e.$$typeof) {
+      if (typeof t == "object")
+        switch (typeof t.tag == "number" && console.error(
+          "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
+        ), t.$$typeof) {
           case f:
-            var r = e;
-            return te(r) + ".Consumer";
-          case i:
-            var n = e;
-            return te(n._context) + ".Provider";
-          case _:
-            return Ye(e, e.render, "ForwardRef");
-          case g:
-            var u = e.displayName || null;
-            return u !== null ? u : T(e.type) || "Memo";
-          case O: {
-            var b = e, x = b._payload, v = b._init;
+            return "Portal";
+          case ee:
+            return t.displayName || "Context";
+          case C:
+            return (t._context.displayName || "Context") + ".Consumer";
+          case re:
+            var d = t.render;
+            return t = t.displayName, t || (t = d.displayName || d.name || "", t = t !== "" ? "ForwardRef(" + t + ")" : "ForwardRef"), t;
+          case le:
+            return d = t.displayName || null, d !== null ? d : i(t.type) || "Memo";
+          case L:
+            d = t._payload, t = t._init;
             try {
-              return T(v(x));
+              return i(t(d));
             } catch {
-              return null;
             }
-          }
         }
       return null;
     }
-    var P = Object.assign, A = 0, ae, ne, ie, oe, se, le, ue;
-    function fe() {
+    function o(t) {
+      return "" + t;
     }
-    fe.__reactDisabledLog = !0;
-    function Me() {
-      {
-        if (A === 0) {
-          ae = console.log, ne = console.info, ie = console.warn, oe = console.error, se = console.group, le = console.groupCollapsed, ue = console.groupEnd;
-          var e = {
-            configurable: !0,
-            enumerable: !0,
-            value: fe,
-            writable: !0
-          };
-          Object.defineProperties(console, {
-            info: e,
-            log: e,
-            warn: e,
-            error: e,
-            group: e,
-            groupCollapsed: e,
-            groupEnd: e
-          });
-        }
-        A++;
-      }
-    }
-    function Ue() {
-      {
-        if (A--, A === 0) {
-          var e = {
-            configurable: !0,
-            enumerable: !0,
-            writable: !0
-          };
-          Object.defineProperties(console, {
-            log: P({}, e, {
-              value: ae
-            }),
-            info: P({}, e, {
-              value: ne
-            }),
-            warn: P({}, e, {
-              value: ie
-            }),
-            error: P({}, e, {
-              value: oe
-            }),
-            group: P({}, e, {
-              value: se
-            }),
-            groupCollapsed: P({}, e, {
-              value: le
-            }),
-            groupEnd: P({}, e, {
-              value: ue
-            })
-          });
-        }
-        A < 0 && m("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
-      }
-    }
-    var J = D.ReactCurrentDispatcher, K;
-    function Y(e, r, n) {
-      {
-        if (K === void 0)
-          try {
-            throw Error();
-          } catch (b) {
-            var u = b.stack.trim().match(/\n( *(at )?)/);
-            K = u && u[1] || "";
-          }
-        return `
-` + K + e;
-      }
-    }
-    var G = !1, M;
-    {
-      var Ve = typeof WeakMap == "function" ? WeakMap : Map;
-      M = new Ve();
-    }
-    function ce(e, r) {
-      if (!e || G)
-        return "";
-      {
-        var n = M.get(e);
-        if (n !== void 0)
-          return n;
-      }
-      var u;
-      G = !0;
-      var b = Error.prepareStackTrace;
-      Error.prepareStackTrace = void 0;
-      var x;
-      x = J.current, J.current = null, Me();
+    function e(t) {
       try {
-        if (r) {
-          var v = function() {
-            throw Error();
-          };
-          if (Object.defineProperty(v.prototype, "props", {
-            set: function() {
-              throw Error();
-            }
-          }), typeof Reflect == "object" && Reflect.construct) {
-            try {
-              Reflect.construct(v, []);
-            } catch (S) {
-              u = S;
-            }
-            Reflect.construct(e, [], v);
-          } else {
-            try {
-              v.call();
-            } catch (S) {
-              u = S;
-            }
-            e.call(v.prototype);
-          }
-        } else {
-          try {
-            throw Error();
-          } catch (S) {
-            u = S;
-          }
-          e();
-        }
-      } catch (S) {
-        if (S && u && typeof S.stack == "string") {
-          for (var c = S.stack.split(`
-`), j = u.stack.split(`
-`), E = c.length - 1, R = j.length - 1; E >= 1 && R >= 0 && c[E] !== j[R]; )
-            R--;
-          for (; E >= 1 && R >= 0; E--, R--)
-            if (c[E] !== j[R]) {
-              if (E !== 1 || R !== 1)
-                do
-                  if (E--, R--, R < 0 || c[E] !== j[R]) {
-                    var w = `
-` + c[E].replace(" at new ", " at ");
-                    return e.displayName && w.includes("<anonymous>") && (w = w.replace("<anonymous>", e.displayName)), typeof e == "function" && M.set(e, w), w;
-                  }
-                while (E >= 1 && R >= 0);
-              break;
-            }
-        }
-      } finally {
-        G = !1, J.current = x, Ue(), Error.prepareStackTrace = b;
-      }
-      var I = e ? e.displayName || e.name : "", k = I ? Y(I) : "";
-      return typeof e == "function" && M.set(e, k), k;
-    }
-    function qe(e, r, n) {
-      return ce(e, !1);
-    }
-    function ze(e) {
-      var r = e.prototype;
-      return !!(r && r.isReactComponent);
-    }
-    function U(e, r, n) {
-      if (e == null)
-        return "";
-      if (typeof e == "function")
-        return ce(e, ze(e));
-      if (typeof e == "string")
-        return Y(e);
-      switch (e) {
-        case p:
-          return Y("Suspense");
-        case y:
-          return Y("SuspenseList");
-      }
-      if (typeof e == "object")
-        switch (e.$$typeof) {
-          case _:
-            return qe(e.render);
-          case g:
-            return U(e.type, r, n);
-          case O: {
-            var u = e, b = u._payload, x = u._init;
-            try {
-              return U(x(b), r, n);
-            } catch {
-            }
-          }
-        }
-      return "";
-    }
-    var C = Object.prototype.hasOwnProperty, de = {}, pe = D.ReactDebugCurrentFrame;
-    function V(e) {
-      if (e) {
-        var r = e._owner, n = U(e.type, e._source, r ? r.type : null);
-        pe.setExtraStackFrame(n);
-      } else
-        pe.setExtraStackFrame(null);
-    }
-    function Be(e, r, n, u, b) {
-      {
-        var x = Function.call.bind(C);
-        for (var v in e)
-          if (x(e, v)) {
-            var c = void 0;
-            try {
-              if (typeof e[v] != "function") {
-                var j = Error((u || "React class") + ": " + n + " type `" + v + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof e[v] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                throw j.name = "Invariant Violation", j;
-              }
-              c = e[v](r, v, u, n, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (E) {
-              c = E;
-            }
-            c && !(c instanceof Error) && (V(b), m("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", u || "React class", n, v, typeof c), V(null)), c instanceof Error && !(c.message in de) && (de[c.message] = !0, V(b), m("Failed %s type: %s", n, c.message), V(null));
-          }
-      }
-    }
-    var Je = Array.isArray;
-    function X(e) {
-      return Je(e);
-    }
-    function Ke(e) {
-      {
-        var r = typeof Symbol == "function" && Symbol.toStringTag, n = r && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return n;
-      }
-    }
-    function Ge(e) {
-      try {
-        return ve(e), !1;
+        o(t);
+        var d = !1;
       } catch {
-        return !0;
+        d = !0;
+      }
+      if (d) {
+        d = console;
+        var p = d.error, b = typeof Symbol == "function" && Symbol.toStringTag && t[Symbol.toStringTag] || t.constructor.name || "Object";
+        return p.call(
+          d,
+          "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
+          b
+        ), o(t);
       }
     }
-    function ve(e) {
-      return "" + e;
-    }
-    function he(e) {
-      if (Ge(e))
-        return m("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Ke(e)), ve(e);
-    }
-    var be = D.ReactCurrentOwner, Xe = {
-      key: !0,
-      ref: !0,
-      __self: !0,
-      __source: !0
-    }, xe, ge;
-    function He(e) {
-      if (C.call(e, "ref")) {
-        var r = Object.getOwnPropertyDescriptor(e, "ref").get;
-        if (r && r.isReactWarning)
-          return !1;
-      }
-      return e.ref !== void 0;
-    }
-    function Qe(e) {
-      if (C.call(e, "key")) {
-        var r = Object.getOwnPropertyDescriptor(e, "key").get;
-        if (r && r.isReactWarning)
-          return !1;
-      }
-      return e.key !== void 0;
-    }
-    function Ze(e, r) {
-      typeof e.ref == "string" && be.current;
-    }
-    function Ne(e, r) {
-      {
-        var n = function() {
-          xe || (xe = !0, m("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", r));
-        };
-        n.isReactWarning = !0, Object.defineProperty(e, "key", {
-          get: n,
-          configurable: !0
-        });
+    function r(t) {
+      if (t === k) return "<>";
+      if (typeof t == "object" && t !== null && t.$$typeof === L)
+        return "<...>";
+      try {
+        var d = i(t);
+        return d ? "<" + d + ">" : "<...>";
+      } catch {
+        return "<...>";
       }
     }
-    function er(e, r) {
-      {
-        var n = function() {
-          ge || (ge = !0, m("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", r));
-        };
-        n.isReactWarning = !0, Object.defineProperty(e, "ref", {
-          get: n,
-          configurable: !0
-        });
-      }
+    function n() {
+      var t = z.A;
+      return t === null ? null : t.getOwner();
     }
-    var rr = function(e, r, n, u, b, x, v) {
-      var c = {
-        // This tag allows us to uniquely identify this as a React Element
-        $$typeof: d,
-        // Built-in properties that belong on the element
-        type: e,
-        key: r,
-        ref: n,
-        props: v,
-        // Record the component responsible for creating this element.
-        _owner: x
-      };
-      return c._store = {}, Object.defineProperty(c._store, "validated", {
+    function s() {
+      return Error("react-stack-top-frame");
+    }
+    function l(t) {
+      if (F.call(t, "key")) {
+        var d = Object.getOwnPropertyDescriptor(t, "key").get;
+        if (d && d.isReactWarning) return !1;
+      }
+      return t.key !== void 0;
+    }
+    function a(t, d) {
+      function p() {
+        Y || (Y = !0, console.error(
+          "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
+          d
+        ));
+      }
+      p.isReactWarning = !0, Object.defineProperty(t, "key", {
+        get: p,
+        configurable: !0
+      });
+    }
+    function x() {
+      var t = i(this.type);
+      return M[t] || (M[t] = !0, console.error(
+        "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
+      )), t = this.props.ref, t !== void 0 ? t : null;
+    }
+    function c(t, d, p, b, I, A) {
+      var S = p.ref;
+      return t = {
+        $$typeof: g,
+        type: t,
+        key: d,
+        props: p,
+        _owner: b
+      }, (S !== void 0 ? S : null) !== null ? Object.defineProperty(t, "ref", {
+        enumerable: !1,
+        get: x
+      }) : Object.defineProperty(t, "ref", { enumerable: !1, value: null }), t._store = {}, Object.defineProperty(t._store, "validated", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: !1
-      }), Object.defineProperty(c, "_self", {
+        value: 0
+      }), Object.defineProperty(t, "_debugInfo", {
         configurable: !1,
         enumerable: !1,
-        writable: !1,
-        value: u
-      }), Object.defineProperty(c, "_source", {
+        writable: !0,
+        value: null
+      }), Object.defineProperty(t, "_debugStack", {
         configurable: !1,
         enumerable: !1,
-        writable: !1,
-        value: b
-      }), Object.freeze && (Object.freeze(c.props), Object.freeze(c)), c;
-    };
-    function tr(e, r, n, u, b) {
-      {
-        var x, v = {}, c = null, j = null;
-        n !== void 0 && (he(n), c = "" + n), Qe(r) && (he(r.key), c = "" + r.key), He(r) && (j = r.ref, Ze(r, b));
-        for (x in r)
-          C.call(r, x) && !Xe.hasOwnProperty(x) && (v[x] = r[x]);
-        if (e && e.defaultProps) {
-          var E = e.defaultProps;
-          for (x in E)
-            v[x] === void 0 && (v[x] = E[x]);
-        }
-        if (c || j) {
-          var R = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
-          c && Ne(v, R), j && er(v, R);
-        }
-        return rr(e, c, j, b, u, be.current, v);
-      }
+        writable: !0,
+        value: I
+      }), Object.defineProperty(t, "_debugTask", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !0,
+        value: A
+      }), Object.freeze && (Object.freeze(t.props), Object.freeze(t)), t;
     }
-    var H = D.ReactCurrentOwner, _e = D.ReactDebugCurrentFrame;
-    function F(e) {
-      if (e) {
-        var r = e._owner, n = U(e.type, e._source, r ? r.type : null);
-        _e.setExtraStackFrame(n);
-      } else
-        _e.setExtraStackFrame(null);
-    }
-    var Q;
-    Q = !1;
-    function Z(e) {
-      return typeof e == "object" && e !== null && e.$$typeof === d;
-    }
-    function ye() {
-      {
-        if (H.current) {
-          var e = T(H.current.type);
-          if (e)
-            return `
-
-Check the render method of \`` + e + "`.";
-        }
-        return "";
-      }
-    }
-    function ar(e) {
-      return "";
-    }
-    var Ee = {};
-    function nr(e) {
-      {
-        var r = ye();
-        if (!r) {
-          var n = typeof e == "string" ? e : e.displayName || e.name;
-          n && (r = `
-
-Check the top-level render call using <` + n + ">.");
-        }
-        return r;
-      }
-    }
-    function Re(e, r) {
-      {
-        if (!e._store || e._store.validated || e.key != null)
-          return;
-        e._store.validated = !0;
-        var n = nr(r);
-        if (Ee[n])
-          return;
-        Ee[n] = !0;
-        var u = "";
-        e && e._owner && e._owner !== H.current && (u = " It was passed a child from " + T(e._owner.type) + "."), F(e), m('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', n, u), F(null);
-      }
-    }
-    function me(e, r) {
-      {
-        if (typeof e != "object")
-          return;
-        if (X(e))
-          for (var n = 0; n < e.length; n++) {
-            var u = e[n];
-            Z(u) && Re(u, r);
-          }
-        else if (Z(e))
-          e._store && (e._store.validated = !0);
-        else if (e) {
-          var b = De(e);
-          if (typeof b == "function" && b !== e.entries)
-            for (var x = b.call(e), v; !(v = x.next()).done; )
-              Z(v.value) && Re(v.value, r);
-        }
-      }
-    }
-    function ir(e) {
-      {
-        var r = e.type;
-        if (r == null || typeof r == "string")
-          return;
-        var n;
-        if (typeof r == "function")
-          n = r.propTypes;
-        else if (typeof r == "object" && (r.$$typeof === _ || // Note: Memo only checks outer props here.
-        // Inner props are checked in the reconciler.
-        r.$$typeof === g))
-          n = r.propTypes;
-        else
-          return;
-        if (n) {
-          var u = T(r);
-          Be(n, e.props, "prop", u, e);
-        } else if (r.PropTypes !== void 0 && !Q) {
-          Q = !0;
-          var b = T(r);
-          m("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", b || "Unknown");
-        }
-        typeof r.getDefaultProps == "function" && !r.getDefaultProps.isReactClassApproved && m("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
-      }
-    }
-    function or(e) {
-      {
-        for (var r = Object.keys(e.props), n = 0; n < r.length; n++) {
-          var u = r[n];
-          if (u !== "children" && u !== "key") {
-            F(e), m("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", u), F(null);
-            break;
-          }
-        }
-        e.ref !== null && (F(e), m("Invalid attribute `ref` supplied to `React.Fragment`."), F(null));
-      }
-    }
-    var je = {};
-    function Se(e, r, n, u, b, x) {
-      {
-        var v = We(e);
-        if (!v) {
-          var c = "";
-          (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (c += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var j = ar();
-          j ? c += j : c += ye();
-          var E;
-          e === null ? E = "null" : X(e) ? E = "array" : e !== void 0 && e.$$typeof === d ? (E = "<" + (T(e.type) || "Unknown") + " />", c = " Did you accidentally export a JSX literal instead of a component?") : E = typeof e, m("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", E, c);
-        }
-        var R = tr(e, r, n, b, x);
-        if (R == null)
-          return R;
-        if (v) {
-          var w = r.children;
-          if (w !== void 0)
-            if (u)
-              if (X(w)) {
-                for (var I = 0; I < w.length; I++)
-                  me(w[I], e);
-                Object.freeze && Object.freeze(w);
-              } else
-                m("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
-            else
-              me(w, e);
-        }
-        if (C.call(r, "key")) {
-          var k = T(e), S = Object.keys(r).filter(function(dr) {
-            return dr !== "key";
-          }), N = S.length > 0 ? "{key: someKey, " + S.join(": ..., ") + ": ...}" : "{key: someKey}";
-          if (!je[k + N]) {
-            var cr = S.length > 0 ? "{" + S.join(": ..., ") + ": ...}" : "{}";
-            m(`A props object containing a "key" prop is being spread into JSX:
+    function _(t, d, p, b, I, A) {
+      var S = d.children;
+      if (S !== void 0)
+        if (b)
+          if (se(S)) {
+            for (b = 0; b < S.length; b++)
+              h(S[b]);
+            Object.freeze && Object.freeze(S);
+          } else
+            console.error(
+              "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
+            );
+        else h(S);
+      if (F.call(d, "key")) {
+        S = i(t);
+        var y = Object.keys(d).filter(function(oe) {
+          return oe !== "key";
+        });
+        b = 0 < y.length ? "{key: someKey, " + y.join(": ..., ") + ": ...}" : "{key: someKey}", q[S + b] || (y = 0 < y.length ? "{" + y.join(": ..., ") + ": ...}" : "{}", console.error(
+          `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, N, k, cr, k), je[k + N] = !0;
-          }
-        }
-        return e === t ? or(R) : ir(R), R;
+  <%s key={someKey} {...props} />`,
+          b,
+          S,
+          y,
+          S
+        ), q[S + b] = !0);
       }
+      if (S = null, p !== void 0 && (e(p), S = "" + p), l(d) && (e(d.key), S = "" + d.key), "key" in d) {
+        p = {};
+        for (var O in d)
+          O !== "key" && (p[O] = d[O]);
+      } else p = d;
+      return S && a(
+        p,
+        typeof t == "function" ? t.displayName || t.name || "Unknown" : t
+      ), c(
+        t,
+        S,
+        p,
+        n(),
+        I,
+        A
+      );
     }
-    function sr(e, r, n) {
-      return Se(e, r, n, !0);
+    function h(t) {
+      m(t) ? t._store && (t._store.validated = 1) : typeof t == "object" && t !== null && t.$$typeof === L && (t._payload.status === "fulfilled" ? m(t._payload.value) && t._payload.value._store && (t._payload.value._store.validated = 1) : t._store && (t._store.validated = 1));
     }
-    function lr(e, r, n) {
-      return Se(e, r, n, !1);
+    function m(t) {
+      return typeof t == "object" && t !== null && t.$$typeof === g;
     }
-    var ur = lr, fr = sr;
-    L.Fragment = t, L.jsx = ur, L.jsxs = fr;
-  })()), L;
+    var D = R, g = Symbol.for("react.transitional.element"), f = Symbol.for("react.portal"), k = Symbol.for("react.fragment"), $ = Symbol.for("react.strict_mode"), v = Symbol.for("react.profiler"), C = Symbol.for("react.consumer"), ee = Symbol.for("react.context"), re = Symbol.for("react.forward_ref"), te = Symbol.for("react.suspense"), ne = Symbol.for("react.suspense_list"), le = Symbol.for("react.memo"), L = Symbol.for("react.lazy"), ae = Symbol.for("react.activity"), ie = Symbol.for("react.client.reference"), z = D.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, F = Object.prototype.hasOwnProperty, se = Array.isArray, T = console.createTask ? console.createTask : function() {
+      return null;
+    };
+    D = {
+      react_stack_bottom_frame: function(t) {
+        return t();
+      }
+    };
+    var Y, M = {}, N = D.react_stack_bottom_frame.bind(
+      D,
+      s
+    )(), U = T(r(s)), q = {};
+    j.Fragment = k, j.jsx = function(t, d, p) {
+      var b = 1e4 > z.recentlyCreatedOwnerStacks++;
+      return _(
+        t,
+        d,
+        p,
+        !1,
+        b ? Error("react-stack-top-frame") : N,
+        b ? T(r(t)) : U
+      );
+    }, j.jsxs = function(t, d, p) {
+      var b = 1e4 > z.recentlyCreatedOwnerStacks++;
+      return _(
+        t,
+        d,
+        p,
+        !0,
+        b ? Error("react-stack-top-frame") : N,
+        b ? T(r(t)) : U
+      );
+    };
+  })()), j;
 }
-var Oe;
-function xr() {
-  return Oe || (Oe = 1, process.env.NODE_ENV === "production" ? q.exports = hr() : q.exports = br()), q.exports;
+var J;
+function he() {
+  return J || (J = 1, process.env.NODE_ENV === "production" ? B.exports = ue() : B.exports = fe()), B.exports;
 }
-var h = xr();
-const gr = "#212121ff";
-function _r(l) {
-  const d = "9566ec883cfc66c1d8e693110ee4290f1b6476864";
-  let a = document.getElementById(d);
-  a && a.remove();
-  const t = document.createElement("style");
-  t.id = d;
-  let o = "";
-  for (const s in l)
-    console.log(s), o += l[s].innerStyle;
-  t.textContent = o, document.head.appendChild(t);
+var u = he();
+const xe = "#212121ff";
+function X(i) {
+  const o = "9566ec883cfc66c1d8e693110ee4290f1b6476864";
+  let e = document.getElementById(o);
+  e && e.remove();
+  const r = document.createElement("style");
+  r.id = o;
+  function n(s) {
+    let l = "";
+    for (const a of s)
+      l += a.innerStyle, a.children.length !== 0 && (l += n(a.children));
+    return l;
+  }
+  r.textContent = n(i), document.head.appendChild(r);
 }
-function yr(l) {
-  return l.replace("/;", " __$emi_col__ ").replace(`
-`, " ").split(";").map((d) => d.trim().split(/\s+/).filter((a) => a.length));
+function H(i) {
+  return i.replace("/;", " __$emi_col__ ").replace(`
+`, " ").split(";").map((o) => o.trim().split(/\s+/).filter((e) => e.length));
 }
-function Er(l) {
-  for (var d = "", a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", t = a.length, o = 0; o < l; o++)
-    d += a.charAt(Math.floor(Math.random() * t));
-  return d;
+function Q(i) {
+  for (var o = "", e = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", r = e.length, n = 0; n < i; n++)
+    o += e.charAt(Math.floor(Math.random() * r));
+  return o;
 }
-function z(l) {
-  return typeof l != "string" ? !1 : !isNaN(l) && !isNaN(parseFloat(l));
+function w(i) {
+  return typeof i != "string" ? !1 : !isNaN(i) && !isNaN(parseFloat(i));
 }
-function Rr(l) {
-  let d = "x1";
-  const a = Er(14);
-  let t = "40px", o = "71.6px", s = "3px", i = gr, f = "1000ms", _ = null, p = 1;
-  for (; l[p] !== void 0; )
-    if (l[p][0] === "$")
-      _ = l[p].replace(/^\$/, ""), p++;
-    else if (l[p][0] === "-") {
-      let g = !0;
-      switch (l[p]) {
+function P(i) {
+  let o = "x1";
+  const e = Q(14);
+  let r = "40px", n = "71.6px", s = "3px", l = xe, a = "1000ms", x = null, c = 1;
+  for (; i[c] !== void 0; )
+    if (i[c][0] === "$")
+      x = i[c].replace(/^\$/, ""), c++;
+    else if (i[c][0] === "-") {
+      let h = !0;
+      switch (i[c]) {
         case "-w":
         case "--width":
-          g = z(l[p + 1][l[p + 1].length - 1]), t = g ? l[p + 1] + "px" : l[p + 1];
+          h = w(i[c + 1][i[c + 1].length - 1]), r = h ? i[c + 1] + "px" : i[c + 1];
           break;
         case "-h":
         case "--height":
-          g = z(l[p + 1][l[p + 1].length - 1]), o = g ? l[p + 1] + "px" : l[p + 1];
+          h = w(i[c + 1][i[c + 1].length - 1]), n = h ? i[c + 1] + "px" : i[c + 1];
           break;
         case "-b":
         case "--border":
-          g = z(l[p + 1][l[p + 1].length - 1]), s = g ? l[p + 1] + "px" : l[p + 1];
+          h = w(i[c + 1][i[c + 1].length - 1]), s = h ? i[c + 1] + "px" : i[c + 1];
           break;
         case "-c":
         case "--color":
-          i = l[p + 1];
+          l = i[c + 1];
           break;
         case "-s":
         case "--speed":
-          g = z(l[p + 1][l[p + 1].length - 1]), f = g ? l[p + 1] + "ms" : l[p + 1];
+          h = w(i[c + 1][i[c + 1].length - 1]), a = h ? i[c + 1] + "ms" : i[c + 1];
+          break;
+        case "-1":
+          o = "x1", c--;
+          break;
+        case "-2":
+          o = "x2", a = "2000ms", c--;
+          break;
+        case "-3":
+          o = "x3", a = "3000ms", c--;
+          break;
+        case "-4":
+          o = "x4", a = "2000ms", c--;
+          break;
+        case "-5":
+          o = "x5", a = "2000ms", c--;
+          break;
+        case "-6":
+          o = "x6", a = "2000ms", c--;
           break;
         default:
-          p--;
+          c--;
           break;
       }
-      p += 2;
+      c += 2;
     } else {
-      switch (l[p]) {
+      switch (i[c]) {
         case "large":
-          t = "60px", o = "107.5px", s = "7px";
+          r = "60px", n = "107.5px", s = "7px";
           break;
         case "normal":
-          t = "40px", o = "71.6px", s = "4px";
+          r = "40px", n = "71.6px", s = "4px";
           break;
         case "thin":
-          t = "48px", o = "86px", s = "2px";
+          r = "48px", n = "86px", s = "2px";
           break;
         case "small":
-          t = "30px", o = "53.7px", s = "2px";
-          break;
-        case "spinner":
-        case "spin":
-        case "t1":
-        case "type-1":
-          d = "x1";
-          break;
-        case "growing":
-        case "grow":
-        case "t2":
-        case "type-2":
-          d = "x2", f = "2000ms";
-          break;
-        case "dottedspinner":
-        case "dotspin":
-        case "t3":
-        case "type-3":
-          d = "x3", f = "3000ms";
-          break;
-        case "loading":
-        case "load":
-        case "t4":
-        case "type-4":
-          d = "x4", f = "2000ms";
-          break;
-        case "moon":
-        case "t5":
-        case "type-5":
-          d = "x5", f = "2000ms";
-          break;
-        case "scroll":
-        case "t6":
-        case "type-6":
-          d = "x6", f = "2000ms";
+          r = "30px", n = "53.7px", s = "2px";
           break;
       }
-      p++;
+      c++;
     }
-  let y = {};
-  if (d === "x1")
-    y = {
-      __DID: a,
+  let _ = {};
+  if (o === "x1")
+    _ = {
+      __DID: e,
       node: "span",
-      id: _,
-      class: ["loader-spinner-x0000-" + a],
+      id: x,
+      class: ["loader-spinner-x0000-" + e],
       innerStyle: `
-      .loader-spinner-x0000-` + a + ` {
-          width:` + t + ";height:" + t + `;
+      .loader-spinner-x0000-` + e + ` {
+          width:` + r + ";height:" + r + `;
           border-radius: 50%;
-          border: ` + s + " solid " + i + `;
+          border: ` + s + " solid " + l + `;
           border-bottom-color: transparent;
           display: inline-block;
           box-sizing: border-box;
-          animation: rotation-loader-snpinner-x0000 ` + f + ` linear infinite;
+          cursor: progress;
+          animation: rotation-loader-snpinner-x0000 ` + a + ` linear infinite;
       }
       @keyframes rotation-loader-snpinner-x0000 {
           0% {
@@ -766,34 +403,36 @@ function Rr(l) {
       }`,
       children: []
     };
-  else if (d === "x2") {
-    const g = f[f.length - 2] === "m" ? String(parseFloat(f) / 2) + "ms" : String(parseFloat(f) / 2) + "s";
-    y = {
-      __DID: a,
+  else if (o === "x2") {
+    const h = a[a.length - 2] === "m" ? String(parseFloat(a) / 2) + "ms" : String(parseFloat(a) / 2) + "s";
+    _ = {
+      __DID: e,
       node: "span",
-      id: _,
-      class: ["loader-spinner-x0001-" + a],
-      innerStyle: ".loader-spinner-x0001-" + a + ` {
-          width:` + t + `;
-          height:` + t + `;
+      id: x,
+      class: ["loader-spinner-x0001-" + e],
+      innerStyle: ".loader-spinner-x0001-" + e + ` {
+          width:` + r + `;
+          height:` + r + `;
           display: inline-block;
+          cursor: progress;
           position: relative;
       }
-      .loader-spinner-x0001-` + a + `::after,
-      .loader-spinner-x0001-` + a + `::before{
+      .loader-spinner-x0001-` + e + `::after,
+      .loader-spinner-x0001-` + e + `::before{
         content: '';
         box-sizing: border-box;
-        width: ` + t + `;
-        height: ` + t + `;
+        cursor: progress;
+        width: ` + r + `;
+        height: ` + r + `;
         border-radius: 50%;
-        border: ` + s + " solid " + i + `;
+        border: ` + s + " solid " + l + `;
         position: absolute;
         left: 0;
         top: 0;
-        animation: animloader-loader-spinner-x0001 ` + f + ` linear infinite;
+        animation: animloader-loader-spinner-x0001 ` + a + ` linear infinite;
       }
-      .loader-spinner-x0001-` + a + `::after {
-          animation-delay: ` + g + `;
+      .loader-spinner-x0001-` + e + `::after {
+          animation-delay: ` + h + `;
       }
       @keyframes animloader-loader-spinner-x0001 {
           0% {
@@ -809,23 +448,24 @@ function Rr(l) {
       `,
       children: []
     };
-  } else if (d === "x3")
-    y = {
-      __DID: a,
+  } else if (o === "x3")
+    _ = {
+      __DID: e,
       node: "span",
-      id: _,
-      class: ["loader-spinner-x0003-" + a],
+      id: x,
+      class: ["loader-spinner-x0003-" + e],
       children: [],
       innerStyle: `
-      .loader-spinner-x0003-` + a + ` {
-        width: ` + t + `;
-        height: ` + t + `;
-        border: ` + s + " dotted " + i + `;
+      .loader-spinner-x0003-` + e + ` {
+        width: ` + r + `;
+        height: ` + r + `;
+        border: ` + s + " dotted " + l + `;
         border-radius: 50%;
         display: inline-block;
         position: relative;
         box-sizing: border-box;
-        animation: rotation-loader-spinner-x0003 ` + f + ` linear infinite;
+        cursor: progress;
+        animation: rotation-loader-spinner-x0003 ` + a + ` linear infinite;
       }
       @keyframes rotation-loader-spinner-x0003 {
         0% {
@@ -837,36 +477,38 @@ function Rr(l) {
       } 
       `
     };
-  else if (d === "x4") {
-    const g = f[f.length - 2] === "m" ? String(parseFloat(f) / 2) + "ms" : String(parseFloat(f) / 2) + "s";
-    y = {
-      __DID: a,
+  else if (o === "x4") {
+    const h = a[a.length - 2] === "m" ? String(parseFloat(a) / 2) + "ms" : String(parseFloat(a) / 2) + "s";
+    _ = {
+      __DID: e,
       node: "span",
-      id: _,
-      class: ["loader-spinner-x0004-" + a],
+      id: x,
+      class: ["loader-spinner-x0004-" + e],
       children: [],
       innerStyle: `
-           .loader-spinner-x0004-` + a + ` {
-        width: ` + t + `;
-        height: ` + t + `;
+           .loader-spinner-x0004-` + e + ` {
+        width: ` + r + `;
+        height: ` + r + `;
         display: inline-block;
+        cursor: progress;
         position: relative;
       }
-      .loader-spinner-x0004-` + a + `::after,
-      .loader-spinner-x0004-` + a + `::before {
+      .loader-spinner-x0004-` + e + `::after,
+      .loader-spinner-x0004-` + e + `::before {
         content: '';  
         box-sizing: border-box;
-        width: ` + t + `;
-        height: ` + t + `;
+        width: ` + r + `;
+        height: ` + r + `;
         border-radius: 50%;
-        background: ` + i + `;
+        background: ` + l + `;
         position: absolute;
+        cursor: progress;
         left: 0;
         top: 0;
-        animation: animloader-loader-spinner-x0004 ` + f + ` linear infinite;
+        animation: animloader-loader-spinner-x0004 ` + a + ` linear infinite;
       }
-      .loader-spinner-x0004-` + a + `::after {
-        animation-delay: ` + g + `;
+      .loader-spinner-x0004-` + e + `::after {
+        animation-delay: ` + h + `;
       }
       @keyframes animloader-loader-spinner-x0004 {
         0% {
@@ -881,71 +523,72 @@ function Rr(l) {
        
       `
     };
-  } else if (d === "x5")
-    y = {
-      __DID: a,
+  } else if (o === "x5")
+    _ = {
+      __DID: e,
       node: "span",
-      id: _,
-      class: ["loader-spinner-x0005-" + a],
+      id: x,
+      class: ["loader-spinner-x0005-" + e],
       children: [],
       innerStyle: `
-      .loader-spinner-x0005-` + a + ` {
-        width: ` + t + `;
-        height: ` + t + `;
+      .loader-spinner-x0005-` + e + ` {
+        width: ` + r + `;
+        height: ` + r + `;
         border-radius: 50%;
         display: inline-block;
         box-sizing: border-box;
-        animation: animloader-loader-spinner-x0005 ` + f + ` linear infinite;
+        cursor: progress;
+        animation: animloader-loader-spinner-x0005 ` + a + ` linear infinite;
       }
 
       @keyframes animloader-loader-spinner-x0005 {
         0% {
-          box-shadow: -` + String(parseFloat(t) * 1.5) + "px 0 " + i + ` inset;
+          box-shadow: -` + String(parseFloat(r) * 1.5) + "px 0 " + l + ` inset;
         }
         100% {
-          box-shadow: ` + t + " 0 " + i + ` inset;
+          box-shadow: ` + r + " 0 " + l + ` inset;
         }
       }  
       `
     };
-  else if (d === "x6") {
-    const g = t[t.length] === "%" ? "%" : t[t.length] === "m" ? "em" : "px";
-    y = {
-      __DID: a,
+  else if (o === "x6") {
+    const h = r[r.length] === "%" ? "%" : r[r.length] === "m" ? "em" : "px";
+    _ = {
+      __DID: e,
       node: "span",
-      id: _,
-      class: ["loader-spinner-x0006-" + a],
+      id: x,
+      class: ["loader-spinner-x0006-" + e],
       children: [],
       innerStyle: `
-      .loader-spinner-x0006-` + a + ` {
-        width: ` + t + `;
-        height: ` + o + `;
-        position: absolute;
+      .loader-spinner-x0006-` + e + ` {
+        width: ` + r + `;
+        height: ` + n + `;
+        position: relative;
       }
 
-      .loader-spinner-x0006-` + a + `::before {
+      .loader-spinner-x0006-` + e + `::before {
         content: '';
         position: absolute;
         left: 50%;
         top: 0;
         transform: translate(-50% , 50%);
-        width: ` + String(parseFloat(t) * 0.2083333333) + g + `;
-        height: ` + String(parseFloat(t) * 0.2083333333) + g + `;
-        background: ` + i + `;
+        width: ` + String(parseFloat(r) * 0.2083333333) + h + `;
+        height: ` + String(parseFloat(r) * 0.2083333333) + h + `;
+        background: ` + l + `;
         border-radius: 50%;
         animation: bounce-loader-spinner-x0006 1s ease-in infinite alternate;
       }
-      .loader-spinner-x0006-` + a + `::after {
+      .loader-spinner-x0006-` + e + `::after {
         content: '';
         left: 0;
         top: 0;
         position: absolute;
-        width: ` + t + `;
-        height: ` + o + `;
+        width: ` + r + `;
+        height: ` + n + `;
         box-sizing: border-box;
-        border: ` + s + " solid " + i + `;
+        border: ` + s + " solid " + l + `;
         border-radius: 50% 50% 50% 50% / 25% 25% 25% 25%;
-        animation: kick-loader-spinner-x0006-` + a + ` 1s ease-in infinite alternate;
+        animation: kick-loader-spinner-x0006-` + e + ` 1s ease-in infinite alternate;
       }
       @keyframes bounce-loader-spinner-x0006 {
         0% {
@@ -957,115 +600,463 @@ function Rr(l) {
           opacity: 0.2;
         }
       }
-      @keyframes kick-loader-spinner-x0006-` + a + ` {
+      @keyframes kick-loader-spinner-x0006-` + e + ` {
         0% , 75% {
-          height: ` + o + `
+          height: ` + n + `
         }
         100% {
-          height: ` + String(parseFloat(o) * 0.9) + g + `
+          height: ` + String(parseFloat(n) * 0.9) + h + `
         }
       }
       `
     };
   }
-  return y;
+  return _;
 }
-function mr(l) {
-  let d = [];
-  if (l) {
-    const a = yr(l);
-    for (const t of a)
-      t[0] === "loader" && d.push(Rr(t));
+function Z(i) {
+  let o = "x1";
+  const e = Q(14), r = 10;
+  let n = 3, s = "round", l = "380px", a = "#e4e4e4ff", x = "#d8d8d8ff", c = "#f8f8f8ff", _ = !1, h = "#f2f2f2", m = !1, D = null, g = !1, f = 1;
+  for (; i[f] !== void 0; )
+    if (i[f][0] === "$")
+      D = i[f].replace(/^\$/, ""), f++;
+    else if (i[f][0] === "-") {
+      let v = !0;
+      switch (i[f]) {
+        case "-s":
+        case "--scale":
+          v = w(i[f + 1]), n = v ? parseFloat(i[f + 1]) : 3;
+          break;
+        case "-w":
+        case "--width":
+          v = w(i[f + 1][i[f + 1].length - 1]), l = v ? i[f + 1] + "px" : i[f + 1];
+          break;
+        case "-b":
+        case "--background-color":
+          c = i[f + 1];
+          break;
+        case "-a":
+        case "--avatar":
+          s = i[f + 1];
+          break;
+        case "--border-color":
+          h = i[f + 1];
+          break;
+        case "-c":
+        case "--color":
+          a = i[f + 1], x = i[f + 2], f++;
+          break;
+        case "-1":
+          o = "x1", l = "380px", f--;
+          break;
+        case "-2":
+          o = "x2", l = "380px", s = "square", f--;
+          break;
+        case "-3":
+          o = "x3", l = "230px", f--;
+          break;
+        case "-4":
+          o = "x4", s = "square", l = "200px", f--;
+          break;
+        default:
+          f--;
+          break;
+      }
+      f += 2;
+    } else {
+      switch (i[f]) {
+        case "large":
+          o === "x1" || o === "x2" ? l = "450px" : o === "x3" ? l = "300px" : o === "x4" && (l = "270px"), n = 4;
+          break;
+        case "normal":
+          o === "x1" || o === "x2" ? l = "380px" : o === "x3" ? l = "230px" : o === "x4" && (l = "200px"), n = 3;
+          break;
+        case "small":
+          o === "x1" || o === "x2" ? l = "290px" : o === "x3" ? l = "150px" : o === "x4" && (l = "140px"), n = 2;
+          break;
+        case "sharp":
+          g = !0;
+          break;
+        case "reverse":
+          m = !0;
+          break;
+        case "frame":
+          _ = !0;
+          break;
+        case "noframe":
+          _ = !1;
+          break;
+        case "dark":
+          a = "#252525ff", x = "#333333ff", c = "#1c1c1cff", h = "#202020ff";
+          break;
+        case "light":
+          a = "#e4e4e4ff", x = "#d8d8d8ff", c = "#f8f8f8ff", h = "#f2f2f2";
+          break;
+      }
+      f++;
+    }
+  let k = {
+    __DID: e,
+    node: "div",
+    id: D,
+    class: ["skeleton-tempalate-parent-xB00-" + e],
+    innerStyle: `
+    .skeleton-tempalate-parent-xB00-${e} {
+      width: ${l};
+      height:max-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: ${_ ? c : "transparent"};
+      border: 1px solid ${_ ? h : "transparent"};
+      padding :11px;
+      border-radius:${g ? "0" : String(n * (r / 2))}px;
+      row-gap: ${String(n * (r / 3))}px;
+      box-sizing: border-box;
+    }
+    .line-skeleton-flex-row-xB00-${e} {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: ${String(n * (r / 3))}px;
+      box-sizing: border-box;
+    }
+    .line-skeleton-flex-row-xB02-${e} {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      column-gap: ${String(n * (r / 3))}px;
+      box-sizing: border-box;
+    }
+    .line-skeleton-flex-col-xB00-${e} {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: ${String(n * (r / 3))}px;
+      box-sizing: border-box;
+    }
+    .SLDS-xB00-hide-${e} {
+      visibility: hidden;
+    }
+    .SLDS-xB00-unzel-${e} {
+      width: ${String(n * 4 * r)}px;
+      aspect-ratio: 1;
+      border-radius: 10000000px;
+      background-color: ${a};
+    }
+    .SLDS-xB00-fuzel-${e} {
+      width: ${String(n * 4 * r)}px;
+      aspect-ratio: 1;
+      border-radius: ${g ? "0" : String(n * (r / 3))}px;
+      background-color: ${a};
+    }
+    .SLDS-xB00-tezel-${e} {
+      width: 100%;
+      height: ${String(n * r)}px;
+      border-radius: ${g ? "0" : String(n * (r / 3))}px;
+      background-color: ${a};
+    }
+    .shimmer-data-shell-specific-${e} {
+        background: linear-gradient(90deg,
+                ${a} 30%,
+                ${x} 50%,
+                ${a} 70%);
+        background-size: 400%;
+        animation: shimmer-data-shell-specific-anim 1.5s infinite linear;
+    }
+    @keyframes shimmer-data-shell-specific-anim {
+      0% {
+        background-position: 100% 100%;
+      }
+
+      100% {
+        background-position: 0 0;
+      }
+    }
+    `,
+    children: []
+  }, $ = [];
+  switch (o) {
+    case "x1":
+      m ? $.push({ __DID: e + "ch01", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+        { __DID: e + "ch012", node: "div", id: null, class: [`line-skeleton-flex-col-xB00-${e}`], innerStyle: "", children: [
+          { __DID: e + "ch0121", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+            { __DID: e + "ch01212", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `SLDS-xB00-hide-${e}`], innerStyle: "", children: [] },
+            { __DID: e + "ch01211", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+          ] },
+          { __DID: e + "ch0122", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] },
+          { __DID: e + "ch0123", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+        ] },
+        { __DID: e + "ch011", node: "div", id: null, class: [`SLDS-xB00-${s === "round" ? "unzel" : "fuzel"}-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+      ] }) : $.push({ __DID: e + "ch01", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+        { __DID: e + "ch011", node: "div", id: null, class: [`SLDS-xB00-${s === "round" ? "unzel" : "fuzel"}-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] },
+        { __DID: e + "ch012", node: "div", id: null, class: [`line-skeleton-flex-col-xB00-${e}`], innerStyle: "", children: [
+          { __DID: e + "ch0121", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+            { __DID: e + "ch01211", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] },
+            { __DID: e + "ch01212", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `SLDS-xB00-hide-${e}`], innerStyle: "", children: [] }
+          ] },
+          { __DID: e + "ch0122", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] },
+          { __DID: e + "ch0123", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+        ] }
+      ] });
+      break;
+    case "x2":
+      m ? ($.push({ __DID: e + "ch01", node: "div", id: null, class: [`line-skeleton-flex-row-xB02-${e}`], innerStyle: "", children: [
+        { __DID: e + "ch012", node: "div", id: null, class: [`line-skeleton-flex-col-xB00-${e}`], innerStyle: "", children: [
+          { __DID: e + "ch0121", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+            { __DID: e + "ch01212", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `SLDS-xB00-hide-${e}`], innerStyle: "", children: [] },
+            { __DID: e + "ch01211", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+          ] },
+          { __DID: e + "ch0122", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+        ] },
+        { __DID: e + "ch011", node: "div", id: null, class: [`SLDS-xB00-${s === "round" ? "unzel" : "fuzel"}2-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+             .SLDS-xB00-unzel2-${e} {
+              width: ${String(n * 2.5 * r)}px;
+              aspect-ratio: 1;
+              border-radius: 10000000px;
+              background-color: ${a};
+            }
+            .SLDS-xB00-fuzel2-${e} {
+              width: ${String(n * 2.5 * r)}px;
+              aspect-ratio: 1;
+              border-radius: ${g ? "0" : String(n * (r / 3))}px;
+              background-color: ${a};
+            }
+             `, children: [] }
+      ] }), $.push({ __DID: e + "ch10", node: "div", id: null, class: [`SLDS-xB00-tezel2-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+            .SLDS-xB00-tezel2-${e} {
+              width: 100%;
+              height: ${String(n * r) * 3}px;
+              border-radius: ${g ? "0" : String(n * (r / 3))}px;
+              background-color: ${a};
+            }
+          `, children: [] })) : ($.push({ __DID: e + "ch01", node: "div", id: null, class: [`line-skeleton-flex-row-xB02-${e}`], innerStyle: "", children: [
+        { __DID: e + "ch011", node: "div", id: null, class: [`SLDS-xB00-${s === "round" ? "unzel" : "fuzel"}2-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+           .SLDS-xB00-unzel2-${e} {
+              width: ${String(n * 2.5 * r)}px;
+              aspect-ratio: 1;
+              border-radius: 10000000px;
+              background-color: ${a};
+            }
+            .SLDS-xB00-fuzel2-${e} {
+              width: ${String(n * 2.5 * r)}px;
+              aspect-ratio: 1;
+              border-radius: ${g ? "0" : String(n * (r / 3))}px;
+              background-color: ${a};
+            } 
+              `, children: [] },
+        { __DID: e + "ch012", node: "div", id: null, class: [`line-skeleton-flex-col-xB00-${e}`], innerStyle: "", children: [
+          { __DID: e + "ch0121", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+            { __DID: e + "ch01211", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] },
+            { __DID: e + "ch01212", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `SLDS-xB00-hide-${e}`], innerStyle: "", children: [] }
+          ] },
+          { __DID: e + "ch0122", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+        ] }
+      ] }), $.push({ __DID: e + "ch10", node: "div", id: null, class: [`SLDS-xB00-tezel2-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+            .SLDS-xB00-tezel2-${e} {
+              width: 100%;
+              height: ${String(n * r) * 3}px;
+              border-radius: ${g ? "0" : String(n * (r / 3))}px;
+              background-color: ${a};
+            }
+          `, children: [] }));
+      break;
+    case "x3":
+      $.push(
+        { __DID: e + "ch01", node: "div", id: null, class: [`SLDS-xB00-${s === "round" ? "unzel" : "fuzel"}3-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+          .SLDS-xB00-unzel3-${e} {
+            width: ${String(n * 3.2 * r)}px;
+            aspect-ratio: 1;
+            border-radius: 10000000px;
+            background-color: ${a};
+          }
+          .SLDS-xB00-fuzel3-${e} {
+            width: ${String(n * 3.2 * r)}px;
+            aspect-ratio: 1;
+            border-radius: ${g ? "0" : String(n * (r / 3))}px;
+            background-color: ${a};
+          } 
+            `, children: [] }
+      ), $.push({ __DID: e + "ch02", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }), $.push({ __DID: e + "ch03", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] });
+      break;
+    case "x4":
+      $.push(
+        { __DID: e + "ch02", node: "div", id: null, class: [`SLDS-xB00-tezel-ar-1-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+          .SLDS-xB00-tezel-ar-1-${e} {
+            width: 100%;
+            aspect-ratio : 1;
+            border-radius: ${g ? "0" : String(n * (r / 3))}px;
+            background-color: ${a};
+          }
+        `, children: [] }
+      ), $.push(
+        { __DID: e + "ch01", node: "div", id: null, class: [`line-skeleton-flex-row-xB00-${e}`], innerStyle: "", children: [
+          { __DID: e + "ch011", node: "div", id: null, class: [`SLDS-xB00-${s === "round" ? "unzel" : "fuzel"}3-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: `
+           .SLDS-xB00-unzel3-${e} {
+              width: ${String(n * 2 * r)}px;
+              aspect-ratio: 1;
+              border-radius: 10000000px;
+              background-color: ${a};
+            }
+            .SLDS-xB00-fuzel3-${e} {
+              width: ${String(n * 2 * r)}px;
+              aspect-ratio: 1;
+              border-radius: ${g ? "0" : String(n * (r / 3))}px;
+              background-color: ${a};
+            } 
+              `, children: [] },
+          { __DID: e + "ch012", node: "div", id: null, class: [`SLDS-xB00-tezel-${e}`, `shimmer-data-shell-specific-${e}`], innerStyle: "", children: [] }
+        ] }
+      );
+      break;
   }
-  return d;
+  return k.children = $, k;
 }
-function Pe({ type: l = "div", src: d, children: a, className: t, id: o, onClick: s = () => {
-}, dsi: i, style: f }) {
-  switch (l) {
+function K() {
+  document.head.innerHTML += '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aliamdevs/airy-icons@latest/css/airy.min.css" />';
+  function i(r) {
+    let n = "";
+    if (r.children.length !== 0)
+      for (const s of r.children)
+        n += i(s);
+    return `<${r.node} ${r.id === null ? "" : 'id="' + r.id + '"'} class="${r.class.join(" ")}" data-shell-id="${r.__DID}" >${n}</${r.node}>`;
+  }
+  let o = [];
+  const e = document.body.getElementsByTagName("*");
+  for (let r = 0; r < e.length; r++) {
+    const n = e[r].getAttribute("data-shell");
+    if (!n) continue;
+    const s = H(n);
+    for (const l of s) {
+      let a;
+      switch (l[0]) {
+        case "loader":
+          a = P(l);
+          break;
+        case "skeleton":
+          a = Z(l);
+          break;
+        default:
+          a = P(l);
+          break;
+      }
+      o.push(a), e[r].innerHTML += i(a);
+    }
+  }
+  X(o);
+}
+function pe(i) {
+  let o = [];
+  if (i) {
+    const e = H(i);
+    for (const r of e)
+      switch (r[0]) {
+        case "loader":
+          o.push(P(r));
+          break;
+        case "skeleton":
+          o.push(Z(r));
+          break;
+      }
+  }
+  return o;
+}
+function V({ type: i = "div", src: o, children: e, className: r, id: n, onClick: s = () => {
+}, dsi: l, style: a }) {
+  switch (i) {
     case "span":
-      return /* @__PURE__ */ h.jsx("span", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("span", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "h1":
-      return /* @__PURE__ */ h.jsx("h1", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("h1", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "h2":
-      return /* @__PURE__ */ h.jsx("h2", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("h2", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "h3":
-      return /* @__PURE__ */ h.jsx("h3", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("h3", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "h4":
-      return /* @__PURE__ */ h.jsx("h4", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("h4", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "h5":
-      return /* @__PURE__ */ h.jsx("h5", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("h5", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "h6":
-      return /* @__PURE__ */ h.jsx("h6", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("h6", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "section":
-      return /* @__PURE__ */ h.jsx("section", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("section", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "blockquote":
-      return /* @__PURE__ */ h.jsx("blockquote", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("blockquote", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "dd":
-      return /* @__PURE__ */ h.jsx("dd", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("dd", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "dt":
-      return /* @__PURE__ */ h.jsx("dt", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("dt", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "dl":
-      return /* @__PURE__ */ h.jsx("dl", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("dl", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "hr":
-      return /* @__PURE__ */ h.jsx("hr", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("hr", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "li":
-      return /* @__PURE__ */ h.jsx("li", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("li", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "ol":
-      return /* @__PURE__ */ h.jsx("ol", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("ol", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "p":
-      return /* @__PURE__ */ h.jsx("p", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("p", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
+    case "i":
+      return /* @__PURE__ */ u.jsx("p", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "ul":
-      return /* @__PURE__ */ h.jsx("ul", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("ul", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "a":
-      return /* @__PURE__ */ h.jsx("a", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("a", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "<button":
-      return /* @__PURE__ */ h.jsx("button", { style: f, "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("button", { style: a, "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "datalist":
-      return /* @__PURE__ */ h.jsx("datalist", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("datalist", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "form":
-      return /* @__PURE__ */ h.jsx("form", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("form", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "input":
-      return /* @__PURE__ */ h.jsx("input", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("input", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "label":
-      return /* @__PURE__ */ h.jsx("label", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("label", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "option":
-      return /* @__PURE__ */ h.jsx("option", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("option", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "select":
-      return /* @__PURE__ */ h.jsx("select", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("select", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "textarea":
-      return /* @__PURE__ */ h.jsx("textarea", { "data-shell-id": i, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("textarea", { "data-shell-id": l, onClick: s, id: n, className: r, children: e });
     case "img":
-      return /* @__PURE__ */ h.jsx("img", { "data-shell-id": i, src: d, onClick: s, id: o, className: t });
+      return /* @__PURE__ */ u.jsx("img", { "data-shell-id": l, src: o, onClick: s, id: n, className: r });
     case "video":
-      return /* @__PURE__ */ h.jsx("video", { "data-shell-id": i, src: d, onClick: s, id: o, className: t });
+      return /* @__PURE__ */ u.jsx("video", { "data-shell-id": l, src: o, onClick: s, id: n, className: r });
     case "audio":
-      return /* @__PURE__ */ h.jsx("audio", { "data-shell-id": i, src: d, onClick: s, id: o, className: t });
-    case "div":
-      return /* @__PURE__ */ h.jsx("div", { "data-shell-id": i, style: f, onClick: s, id: o, className: t, children: a });
+      return /* @__PURE__ */ u.jsx("audio", { "data-shell-id": l, src: o, onClick: s, id: n, className: r });
+    case "none":
+      return /* @__PURE__ */ u.jsx(R.Fragment, { children: e });
     default:
-      return /* @__PURE__ */ h.jsx(B.Fragment, { children: a });
+      return /* @__PURE__ */ u.jsx("div", { "data-shell-id": l, style: a, onClick: s, id: n, className: r, children: e });
   }
 }
-const Sr = ({ shell: l, style: d, className: a, type: t = "div" }) => {
-  const [o, s] = pr(null);
-  return vr(() => {
-    const i = mr(l);
-    s(i), _r(i);
-  }, [l]), /* @__PURE__ */ h.jsx(B.Fragment, { children: /* @__PURE__ */ h.jsx(
-    Pe,
+const Se = ({ shell: i, style: o, className: e, type: r = "div" }) => {
+  const [n, s] = ce(null);
+  de(() => {
+    const a = pe(i);
+    s(a), X(a);
+  }, [i]);
+  const l = ({ nodelist: a }) => /* @__PURE__ */ u.jsx(R.Fragment, { children: a === null ? null : a.map((x, c) => /* @__PURE__ */ u.jsx(V, { type: x.node, className: x.class.join(" "), id: x.id === null ? "" : 'id="' + x.id + '"', dsi: x.__DID, children: x.children.length !== 0 ? /* @__PURE__ */ u.jsx(l, { nodelist: x.children }) : null }, c)) });
+  return /* @__PURE__ */ u.jsx(R.Fragment, { children: /* @__PURE__ */ u.jsx(
+    V,
     {
-      type: t,
-      style: d,
-      className: a,
-      children: o === null ? null : o.map((i, f) => /* @__PURE__ */ h.jsx(Pe, { type: i.node, className: i.class.join(" "), id: i.id === null ? "" : 'id="' + i.id + '"', dsi: i.__DID }, f))
+      type: r,
+      style: o,
+      className: e,
+      children: /* @__PURE__ */ u.jsx(l, { nodelist: n })
     }
   ) });
 };
-function wr() {
-  run_data_shell_replacer();
+function _e() {
+  K();
 }
-run_data_shell_replacer();
+K();
 export {
-  Sr as DataShellEnv,
-  wr as useDataShell
+  Se as DataShellEnv,
+  _e as useDataShell
 };
