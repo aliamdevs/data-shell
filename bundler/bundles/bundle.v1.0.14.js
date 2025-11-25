@@ -1,4 +1,4 @@
-/* Auto-generated bundle v1.0.12 - 2025-11-16T10:22:57.562Z */
+/* Auto-generated bundle v1.0.14 - 2025-11-25T09:44:41.248Z */
 
 // GLOBAL VARIBALES : 
 const main_color = "#8c5cdfff";
@@ -717,6 +717,7 @@ function new_skeleton(command){
 
 
 function run_data_shell_replacer (){
+    document.head.innerHTML += '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aliamdevs/airy-icons@latest/css/airy.min.css" />'
     function make_element(ulm){
         let childtmp = '';
         if(ulm.children.length !== 0){

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { data_shell_array } from "../bundler/js/engine";
 import { injectStyle } from "../bundler/js/utils";
 import ElementSelector from "./element-selector";
+import '@aliamdevs/airy-icons'
 
 export const DataShellEnv = ({shell,style,className,type = 'div'}) => {
   const [NodeLists, setNodeLists] = useState(null);

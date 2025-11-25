@@ -4,6 +4,7 @@ import { command_spliter } from "./utils";
 import { new_skeleton } from "./skeleton";
 
 export function run_data_shell_replacer (){
+    document.head.innerHTML += '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aliamdevs/airy-icons@latest/css/airy.min.css" />'
     function make_element(ulm){
         let childtmp = '';
         if(ulm.children.length !== 0){
